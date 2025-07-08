@@ -1,12 +1,7 @@
 {
   "version": 2,
-  "functions": {
-    "api/download.py": {
-      "runtime": "python3.10"
-    }
-  },
+  "builds": [{ "src": "app.py", "use": "@vercel/python" }],
   "routes": [
-    { "src": "/", "methods": ["GET"], "dest": "/index.html" },
-    { "src": "/", "methods": ["POST"], "dest": "/api/download.py" }
+    { "src": "/(.*)", "dest": "app.py" }
   ]
 }
